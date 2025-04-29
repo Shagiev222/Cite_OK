@@ -1,0 +1,161 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: Poppins-Regular;
+    src: url(../fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: Poppins-Bold;
+    src: url(../fonts/Poppins-Bold.ttf);
+}
+@font-face {
+    font-family: Poppins-Black;
+    src: url(../fonts/Poppins-Black.ttf);
+}
+
+@font-face {
+    font-family: Poppins-SemiBold;
+    src: url(../fonts/Poppins-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: Poppins-Medium;
+    src: url(../fonts/Poppins-Medium.ttf);
+}
+.container_1{
+    width: 1920px;
+    height: 100vh;
+    margin: auto;
+    background-color: #14151b;
+    padding-top: 0.1px;
+}
+.back{
+    width: auto;
+    height: auto;
+    display: flex;
+    margin-left: 133px;
+    margin-top: 50px;
+}
+.Left_carousel{
+    width: auto;
+    height: auto;
+}
+.back_text{
+    font-size: 24px;
+    font-family: Poppins-Bold;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    margin-top: -5px;
+}
+.information_1{
+    margin-left: 20px;
+}
+
+.game-details {
+    color: white;
+    display: flex;
+    width: 1920px;
+    height: auto;
+    margin-top: 40px;
+}
+.game-title {
+    font-size: 64px;
+    font-family: Poppins-Bold;
+    height: 90px;
+    
+}
+.game-image {
+    width: 400px;
+    height: 500px;
+    border-radius: 20px;
+    object-fit: cover;
+    margin-bottom: 30px;
+    border-radius: 6%;
+    margin-left: 133px;
+}
+.lorem{
+    margin-top: 15px;
+    display: flex;
+    width: 1200px;
+    height: auto;
+    font-family: Poppins-Medium;
+    font-size: 18px;
+}
+.game-genres {
+    display: flex;
+    gap: 40px;
+}
+.genre-tag {
+    padding: 5px 15px;
+    border: 0.1px solid gray;
+    border-radius: 15px;
+    color: rgb(255, 255, 255);
+    font-family: Poppins-Bold;
+}
+.Rating{
+    display: flex;
+    margin-top: 10px;
+}
+.game-rating {
+    font-size: 24px;
+    font-family: Poppins-Bold;
+    margin-left: 5px;
+}
+.game-rating_1 {
+    font-size: 24px;
+    font-family: Poppins-Bold;
+}
+.positive {
+    color: #00ff93;
+}
+.neutral {
+    color: #fffb00;
+}
+.negative {
+    color: #ff0000;
+}
+
+.game-price-section {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    gap: 20px;
+}
+.price-tag {
+    font-family: Poppins-Black;
+    font-size: 24px;
+    color: #FFFFFF;
+    background-color: #ffffff1a;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+.buy-btn {
+    height: 50px;
+    width: 120px;
+    background-color: #00ff93;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+.buy-btn:hover {
+    background-color: #126643;
+}
+.buy-text {
+    font-family: Poppins-Black;
+    font-size: 24px;
+    color: gray;
+    opacity: 40%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.buy-text:hover {
+    opacity: 100%;
+}
