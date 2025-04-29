@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Details</title>
+    <link rel="stylesheet" href="css/css_1.css">
+    <link rel="stylesheet" href="css/css.css">
+</head>
+<body>
+    <div class="container_1">
+        <header class="header">
+            <div class="UltraGame"><a href="#" class="cnopka1"><p class="UltraGame_1">UltraGame</p></a></div>
+            <div class="search_header">
+                <div><input type="text" class="search_header_text" placeholder="&nbsp&nbsp&nbsp&nbsp&nbspПоиск..."></div>
+                <div class="cnopka"><a href="#" class="cnopka1"><p class="Search_cn">Search</p></a> </div>
+            </div>
+            <a href="file:///E:/Working/Rinat/index.html"><img src="img/User.png" alt="" class="User"></a>
+        </header>
+
+        <main>
+            <div class="back">
+                <a href="index.html"><img src="img/Left_carousel.png" alt="" class="Left_carousel"></a>
+                <p class="back_text">Go back to the game catalog</p>
+            </div>
+            <div class="information">
+                <div class="game-details">
+                    <img id="game-image" class="game-image" src="" alt="Game Cover">
+                    <div class="information_1">
+                        <h1 id="game-title" class="game-title">Game Title</h1>  
+                        <div class="game-info">
+                            <div id="game-genres" class="game-genres">
+                                <!-- Жанры будут добавлены через JS -->
+                            </div>
+                            <div class="lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, ipsa odit dicta illo quas rem vel sint voluptate cupiditate beatae. Eius aliquid esse consequuntur dolor est quasi corrupti tenetur provident?
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio ipsum maiores accusamus cupiditate quam, possimus error quo eos expedita vitae autem quia saepe impedit, qui inventore fugiat, obcaecati incidunt adipisci.
+                            </div>
+                            <div class="Rating">
+                                <h2 class="game-rating_1">Rating -</h2>
+                                <p id="game-rating" class="game-rating">Rating will be here</p>
+                            </div>
+                            <div class="game-price-section">
+                                <div id="game-price" class="Price">0$</div>
+                                <div class="Buy_1 B1"><p id="Buy">Buy</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="information_2">
+
+            </div>
+        </main>
+
+
+
+
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="menu_buy">
+                    <p class="menu_text_1">Оформление заказа</p>
+                    <div><input type="text" class="search_header_text_1" placeholder="&nbsp;&nbsp;Ссылка на профиль в steam"></div>
+                    <div><input type="text" class="search_header_text_1" placeholder="&nbsp;&nbsp;Введите промокод"></div>
+                    <div><input type="text" class="search_header_text_1" placeholder="&nbsp;&nbsp;Введите номер телефона(оплата по СБП)"></div>
+                    <div class="menu_text_2">
+                        <p class="menu_text_3">К оплате:</p>
+                        <span id="total-price" class="menu_text_4">0$</span>
+                    </div>
+                    <button class="Buy_3" id="B1"><p id="Buy_3_1">Buy</p></button>
+                </div>
+            </div>
+        </div>    
+    
+    </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Получаем параметры из URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const title = urlParams.get('title');
+            const genre = urlParams.get('genre');
+            const rating = urlParams.get('rating');
+            const image = urlParams.get('image');
+            
+            // Устанавливаем данные на странице
+            if (title) {
+                document.getElementById('game-title').textContent = title;
+                document.title = title + " | UltraGame";
+            }
+            
+            if (genre) {
+                const genresContainer = document.getElementById('game-genres');
+                const genres = genre.split(', ');
+                
+                genres.forEach(g => {
+                    const tag = document.createElement('span');
+                    tag.className = 'genre-tag';
+                    tag.textContent = g;
+                    genresContainer.appendChild(tag);
+                });
+            }
+            
+            if (rating) {
+                const ratingElement = document.getElementById('game-rating');
+                ratingElement.textContent = rating;
+                
+                // Добавляем класс в зависимости от рейтинга
+                if (rating.includes('Very Positive') || rating.includes('Positive')) {
+                    ratingElement.classList.add('positive');
+                } else if (rating.includes('Neutral')) {
+                    ratingElement.classList.add('neutral');
+                } else if (rating.includes('Negative')) {
+                    ratingElement.classList.add('negative');
+                }
+            }
+            
+            if (image) {
+                document.getElementById('game-image').src = image;
+            }
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Получаем параметры из URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const price = urlParams.get('price');
+            
+            // Устанавливаем цену
+            if (price) {
+                const priceElement = document.getElementById('game-price');
+                priceElement.textContent = price === '0' ? 'free' : price + '$';
+            }
+            
+            // Обработчик для кнопки Buy (аналогичный index.html)
+            document.querySelector('.B1').addEventListener('click', function() {
+                const modal = document.getElementById("myModal");
+                if (modal) {
+                    modal.style.display = "block";
+                    
+                    // Устанавливаем цену в модальном окне
+                    const totalElement = document.getElementById('total-price');
+                    if (totalElement && price) {
+                        totalElement.textContent = price + '$';
+                    }
+                }
+            });
+        });
+    </script>
+
+    <script>
+        const modal = document.getElementById("myModal");
+        btns = document.getElementsByClassName("B1");
+        const span = document.getElementsByClassName("close")[0];
+        const span1 = document.getElementsByClassName("Buy_3")[0];
+
+        for (let i = 0; i < btns.length; i++) {
+            let btn = btns[i]; // Получаем каждую кнопку по очереди
+            btn.onclick = function() {
+                modal.style.display = "block";
+            }
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+        
+        span1.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+    </script>
+    <script>      
+        let total = 0;
+        const totalElement = document.getElementById('total-price');
+        const checkoutBtn = document.getElementById('B1');
+
+        // Добавление товаров
+        document.querySelectorAll('.B1').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const price = parseFloat(this.parentElement.dataset.price);
+            total += price;
+            totalElement.textContent = total + '$';
+        });
+        });
+
+        // Оформление заказа и обнуление
+
+</script>
+</body>
+</html>
